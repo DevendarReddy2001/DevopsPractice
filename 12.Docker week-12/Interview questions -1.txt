@@ -1,0 +1,122 @@
+1. What is Docker? 
+Ans) Docker is a software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime.
+
+2. What is the difference between Docker image and Docker container? 
+Ans) Docker Image-a Docker image is a lightweight, standalone, and executable package that includes all the necessary components to run a piece of software, including the code, runtime, system tools, libraries, and settings. It serves as a blueprint for creating Docker containers. Images are created from a set of instructions defined in a file called a Dockerfile.
+     Docker Container-a Docker container is a running instance of a Docker image. It is an isolated and executable environment that encapsulates an application and its dependencies. Containers provide consistency across different environments, allowing developers to run applications seamlessly on various systems.
+
+3. How will you remove an image from Docker? 
+Ans) docker rmi <image_name_or_id>
+
+4. How is a Docker container different from a virtual machine? 
+Ans) VMs have the host OS and guest OS inside each VM. A guest OS can be any OS, like Linux or Windows, irrespective of the host OS. In contrast, Docker containers host on a single physical server with a host OS, which shares among them. Sharing the host OS between containers makes them light and increases the boot time
+
+5. Explain basic Docker usage workflow? 
+Ans) Install Docker->Verify Installation->Pull docker image->list docker image->Create docker container->view running container->Access container shell->Remove docker image
+
+6. What is the most popular use of Docker? 
+Ans) An open-source platform, Docker is used by developers to help them automate the deployment of applications inside containers
+
+7. What is a Docker Image? 
+Ans)  Docker image is a lightweight, standalone package that contains everything needed to run a software application, including code, runtime, libraries, and dependencies
+
+8. What is a Docker Container? 
+Ans)Docker container is a lightweight, standalone, and portable environment that encapsulates an application and its dependencies, ensuring consistency across different systems 
+
+9. Can we lose our data when a Docker Container exits? 
+Ans) Yes, data within a Docker container can be lost when the container exits unless it's stored in a persistent volume or external storage.
+
+10. How do you make sure our data exists even though you deleted container? 
+Ans) To ensure data persists even if the container is deleted, you can use Docker volumes to store data externally or bind mount directories from the host machine into the container.
+
+11. How can you do a Volume Mapping? 
+Ans) docker run -v <host_directory>:<container_directory> <image_name>
+
+12. Can I do a Read-only Mapping? 
+Ans) docker run -v <host_directory>:<container_directory>:ro <image_name>
+
+13. How to mount files from physical server to docker container? 
+Ans)  Docker's volume mounting feature
+
+14. Can we run more than one process in a Docker container? 
+Ans Supervisord or a Process Manager
+
+15. What is Docker Hub? 
+Ans) Docker Hub is a cloud-based registry service provided by Docker that allows users to store, share, and manage Docker container images. It serves as a centralized repository where developers can publish their Docker images, making it easy for others to discover, download, and use those images.
+
+16. What are the main features of Docker Hub? 
+Ans) Image Hosting,Image Discovery, Collaboration, Automated Builds, Webhooks
+
+17. How can we check the status of a Container in Docker? 
+Ans) Docker ps and docker ps -a
+
+18. What is the difference between docker ps and dockerps-a commands? 
+Ans) docker ps command is used to only check the running containers and
+Docker ps -a command is used to check the all states of containers
+
+19. How do you login to the running container? 
+Ans) using docker attach container name or
+Docker exec -it container_name bin/bash
+
+20. What are the various states that a Docker container can be in at any given point in time? 
+Ans) Created,Start,Stop,Kill,Restart,Pause,Running
+
+21. What are the main benefits of using Docker? 
+Ans) portability, isolation, Efficiency and Resource Utilization, Consistent Development Environments, Rapid Deployment, Ecosystem and Community, Orchestration and Scaling
+
+22. What are the popular tasks that you can do with Docker Command line tool? 
+Ans) Running Containers, Managing Images, Managing Containers, Managing Networks, Managing Volumes, Viewing Logs, Executing Commands, Copying Files, Managing Docker Swarm, Managing Docker Compose
+
+23. What is the user of Dockerfile? 
+Ans) Dockerfile is a text file that contains instructions for building a Docker image.
+
+24. What is the difference between Add and Copy command in a Dockerfile? 
+Ans) both ADD and COPY can be used to copy files and directories into a Docker container, COPY is simpler and more predictable, while ADD provides additional features such as URL support and automatic extraction of compressed files
+
+25. What is the difference between RUN and CMD command in a Dockerfile? 
+Ans) RUN command is used during the Docker image build process to execute commands and create layers, while the CMD command is used to define the default command to be executed when the container is run.
+
+26. What is Docker Entrypoint? 
+Ans)  Docker Entrypoint is a command that defines the default executable to run when the container starts
+
+27. What is the difference between CMD and ENTRYPOINT command in a Dockerfile? 
+Ans) CMD and ENTRYPOINT are used to define the default command to run when a container starts, CMD provides default arguments that can be overridden when you provide an argument, whereas ENTRYPOINT specifies the default executable and cannot be overridden directly.
+
+28. What is Build cache in Docker? 
+Ans) the build cache refers to a mechanism that helps speed up the image building process by reusing intermediate build layers from previous builds. When you build a Docker image, each instruction in the Dockerfile creates a layer, and these layers are cached. If you make changes to the Dockerfile or the context (build context, which includes files and directories used during the build), Docker attempts to use the cached layers for unchanged parts of the build.
+
+29. What are the most common instructions in Dockerfile? 
+Ans) RUN, FROM, COPY, EXPOSE, ENV, CMD, ADD, ENTRYPOINT
+
+30. What is the purpose of EXPOSE command in Dockerfile? 
+Ans) It is used to make specific port accessible to other services within the same network
+
+31. Which kind of network you are using in docker? 
+Ans) bridge, host, none, overlay
+
+32. What is Overlay network in Docker swarm? 
+Ans) Overlay network in Docker Swarm enables communication between containers across different Docker hosts
+
+33. What are the main features of Docker-compose? 
+Ans) Main features of Docker-compose include defining and running multi-container Docker applications, managing dependencies between services, and enabling easy configuration through yml files
+
+34. How can we control the start-up order of services in Docker compose? 
+Ans) In Docker Compose, you can control the start-up order of services using the depends_on attribute. The depends_on attribute allows you to specify the services that a particular service depends on, ensuring that the dependent services start before the service that relies on them.
+
+35. How will you customize Docker compose file for different environments? 
+Ans)  by utilizing environment variables, conditionals, or separate configuration files for each environment
+
+36. Which version of docker compose you have used? 
+Ans) 25.0.4
+
+37. In compose file what is the difference between Links and depends on? 
+Ans) Links is a legacy option for connecting containers in the same network, while depends_on specifies the order in which services should be started
+
+38. How to get docker container logs? 
+Ans) docker logs <container_name_or_id>
+
+39. What is Docker Swarm? 
+Ans) Docker Swarm is a native clustering and orchestration solution for Docker containers. It allows you to create and manage a swarm of Docker nodes, turning them into a single virtual Docker engine. Swarm enables the deployment and scaling of containerized applications across a cluster of machines, providing features such as load balancing, service discovery, and high availability. 
+
+40. What are the features of Docker Swarm? 
+Ans) Ease of Use, Native Docker Integration, Container Orchestration, High Availability, Load Balancing
